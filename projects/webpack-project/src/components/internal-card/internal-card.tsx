@@ -8,7 +8,7 @@ const Title = styled.h1`
 `;
 
 const commonStyles = `
-  background-color: #ccc;
+  background-color: ${tokens.colors.neutral100};
 `;
 
 const Card = styled.div<{ color?: 'red' | 'green' | 'blue' }>`
