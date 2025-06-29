@@ -8,6 +8,8 @@ const Title = styled.h1`
 `;
 
 const commonStyles = `
+  margin-top: 20px;
+  margin-bottom: 20px;
   background-color: ${tokens.colors.neutral100};
 `;
 
