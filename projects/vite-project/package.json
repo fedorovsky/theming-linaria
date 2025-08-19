@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@fedorovskyi/ui-kit": "^1.0.18",
+    "@fedorovskyi/ui-kit-linaria": "^1.0.4",
     "@linaria/core": "^6.3.0",
     "@linaria/react": "^6.3.0",
     "react": "^19.1.1",

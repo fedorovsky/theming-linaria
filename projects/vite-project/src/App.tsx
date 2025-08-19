@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { FirstComponent } from '@fedorovskyi/ui-kit/first-component';
+import { FirstComponent } from '@fedorovskyi/ui-kit-linaria/first-component';
 import { SecondComponent } from '@fedorovskyi/ui-kit/second-component';
 import { ThemeSwitcher } from './components/theme-switcher';
 
