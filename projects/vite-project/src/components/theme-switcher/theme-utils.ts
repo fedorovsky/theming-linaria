@@ -20,7 +20,7 @@ export function applyTheme(theme: string) {
 // Listen for system changes and re-apply if in SYSTEM mode
 export function watchSystemTheme() {
   const mql = window.matchMedia('(prefers-color-scheme: dark)');
-  mql.addEventListener('change', (e) => {
+  mql.addEventListener('change', () => {
     if (getSavedTheme() === THEMES.SYSTEM) {
       applyTheme(THEMES.SYSTEM);
     }
