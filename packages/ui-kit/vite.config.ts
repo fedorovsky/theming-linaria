@@ -3,46 +3,16 @@ import dts from 'vite-plugin-dts';
 import wyw from '@wyw-in-js/vite';
 import { libInjectCss } from 'vite-plugin-lib-inject-css';
 import path from 'path';
-import fg from 'fast-glob';
+import { readdirSync } from 'fs'
 
-const componentsDir = path.resolve(__dirname, 'src');
-
-/**
- * Find all index.tsx or index.ts files in the src directory (one per component).
- */
-const componentEntryFiles = fg.sync('*/index.{ts,tsx}', {
-  cwd: componentsDir,
-  onlyFiles: true,
-});
-
-/**
- * Build an object where:
- * - key = component name in kebab-case (directory name)
- * - value = absolute path to its index.tsx or index.ts file
- *
- * Example:
- * {
- *   'button': './src/button/index.tsx',
- *   'modal': './src/modal/index.ts',
- *   'card': './src/card/index.tsx'
- * }
- */
-const entries = componentEntryFiles.reduce<Record<string, string>>(
-  (acc, relativePath) => {
-    const [dirName] = relativePath.split('/');
-    const kebabName = dirName.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
-    acc[kebabName] = path.resolve(componentsDir, relativePath);
-    return acc;
-  },
-  {}
-);
+const componentDirs = readdirSync(path.resolve(__dirname, 'src'), { withFileTypes: true })
+  .filter((dirent) => dirent.isDirectory())
+  .map((dirent) => dirent.name)
 
 export default defineConfig({
   plugins: [
     libInjectCss(),
-    dts({
-      outDir: path.resolve(__dirname, 'dist', 'types'),
-    }),
+    dts({ include: ['src'] }),
     wyw({
       include: ['src/**/*.{ts,tsx}'],
       babelOptions: {
@@ -55,12 +25,29 @@ export default defineConfig({
   ],
   build: {
     lib: {
-      entry: entries,
-      fileName: (format, entryName) => `${entryName}.${format}.js`,
-      formats: ['es'],
+      // несколько точек входа (каждый компонент отдельно)
+      entry: Object.fromEntries(
+        componentDirs.map((name) => [name, path.resolve(__dirname, `src/${name}/index.ts`)])
+      ),
+      formats: ['es', 'cjs'],
+      fileName: (format, entryName) => `${entryName}/index.${format}.js`,
     },
     rollupOptions: {
-      external: ['react', 'react/jsx-runtime'],
+      external: [
+        'react',
+        'react-dom',
+        'react/jsx-runtime'   // 🚀 добавляем это
+      ],
+      output: {
+        dir: 'dist',
+        chunkFileNames: (chunk) => `${chunk.name}/[name].js`,
+        assetFileNames: '[name]/[name].[ext]',
+        globals: {
+          react: 'React',
+          'react-dom': 'ReactDOM',
+          'react/jsx-runtime': 'jsxRuntime',
+        },
+      },
     },
     target: 'es2020',
   },
