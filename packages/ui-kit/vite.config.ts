@@ -36,7 +36,7 @@ export default defineConfig({
       external: [
         'react',
         'react-dom',
-        'react/jsx-runtime'   // 🚀 добавляем это
+        'react/jsx-runtime'
       ],
       output: {
         dir: 'dist',
