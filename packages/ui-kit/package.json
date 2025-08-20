@@ -2,10 +2,6 @@
   "name": "@fedorovskyi/ui-kit-linaria",
   "version": "1.0.6",
   "description": "ui-kit-linaria",
-  "main": "./dist/index.es.js",
-  "module": "./dist/index.es.js",
-  "types": "./dist/index.d.ts",
-  "type": "module",
   "exports": {
     "./first-component": {
       "types": "./dist/first-component/index.d.ts",
