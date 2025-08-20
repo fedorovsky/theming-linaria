@@ -1,0 +1,34 @@
+import fs from 'fs'
+import path from 'path'
+
+const root = process.cwd()
+const distPath = path.join(root, 'dist')
+const packageJsonPath = path.join(root, 'package.json')
+
+// читаем package.json
+const pkg = JSON.parse(fs.readFileSync(packageJsonPath, 'utf-8'))
+
+const exportsField = {}
+
+// ищем все папки в dist (каждый компонент)
+if (fs.existsSync(distPath)) {
+  const componentDirs = fs.readdirSync(distPath, { withFileTypes: true })
+    .filter((d) => d.isDirectory())
+    .map((d) => d.name)
+
+  for (const name of componentDirs) {
+    exportsField[`./${name}`] = {
+      types: `./dist/${name}/index.d.ts`,
+      import: `./dist/${name}/index.es.js`,
+      require: `./dist/${name}/index.cjs.js`
+    }
+  }
+}
+
+// обновляем только exports
+pkg.exports = exportsField
+
+// сохраняем с красивым форматированием
+fs.writeFileSync(packageJsonPath, JSON.stringify(pkg, null, 2) + '\n')
+
+console.log('✅ package.json exports updated!')

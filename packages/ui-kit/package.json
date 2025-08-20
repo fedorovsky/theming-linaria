@@ -2,6 +2,7 @@
   "name": "@fedorovskyi/ui-kit-linaria",
   "version": "1.0.6",
   "description": "ui-kit-linaria",
+  "type": "module",
   "exports": {
     "./first-component": {
       "types": "./dist/first-component/index.d.ts",
@@ -11,7 +12,7 @@
   },
   "scripts": {
     "clean": "rm -rf dist",
-    "build": "npm run clean && vite build",
+    "build": "npm run clean && vite build && node scripts/update-exports.js",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,md}\"",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
