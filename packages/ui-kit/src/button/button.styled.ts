@@ -70,26 +70,31 @@ const variantColor: Record<
       color: string;
       backgroundColor: string;
       backgroundImage: string;
+      icon: string;
     };
     hover: {
       color: string;
       backgroundColor: string;
       backgroundImage: string;
+      icon: string;
     };
     focus: {
       color: string;
       backgroundColor: string;
       backgroundImage: string;
+      icon: string;
     };
     active: {
       color: string;
       backgroundColor: string;
       backgroundImage: string;
+      icon: string;
     };
     disabled: {
       color: string;
       backgroundColor: string;
       backgroundImage: string;
+      icon: string;
     };
   }
 > = {
@@ -98,21 +103,25 @@ const variantColor: Record<
       color: tokens.components.buttons.primary.normal.text,
       backgroundColor: tokens.components.buttons.primary.normal.backgroundColor,
       backgroundImage: tokens.components.buttons.primary.normal.backgroundImage,
+      icon: tokens.components.buttons.primary.normal.icon,
     },
     hover: {
       color: tokens.components.buttons.primary.hover.text,
       backgroundColor: tokens.components.buttons.primary.hover.backgroundColor,
       backgroundImage: tokens.components.buttons.primary.hover.backgroundImage,
+      icon: tokens.components.buttons.primary.hover.icon,
     },
     focus: {
       color: tokens.components.buttons.primary.hover.text,
       backgroundColor: tokens.components.buttons.primary.hover.backgroundColor,
       backgroundImage: tokens.components.buttons.primary.hover.backgroundImage,
+      icon: tokens.components.buttons.primary.hover.icon,
     },
     active: {
       color: tokens.components.buttons.primary.active.text,
       backgroundColor: tokens.components.buttons.primary.active.backgroundColor,
       backgroundImage: tokens.components.buttons.primary.active.backgroundImage,
+      icon: tokens.components.buttons.primary.active.icon,
     },
     disabled: {
       color: tokens.components.buttons.primary.disabled.text,
@@ -120,6 +129,7 @@ const variantColor: Record<
         tokens.components.buttons.primary.disabled.backgroundColor,
       backgroundImage:
         tokens.components.buttons.primary.disabled.backgroundImage,
+      icon: tokens.components.buttons.primary.disabled.icon,
     },
   },
   secondary: {
@@ -129,6 +139,7 @@ const variantColor: Record<
         tokens.components.buttons.secondary.normal.backgroundColor,
       backgroundImage:
         tokens.components.buttons.secondary.normal.backgroundImage,
+      icon: tokens.components.buttons.secondary.normal.icon,
     },
     hover: {
       color: tokens.components.buttons.secondary.hover.text,
@@ -136,6 +147,7 @@ const variantColor: Record<
         tokens.components.buttons.secondary.hover.backgroundColor,
       backgroundImage:
         tokens.components.buttons.secondary.hover.backgroundImage,
+      icon: tokens.components.buttons.secondary.hover.icon,
     },
     focus: {
       color: tokens.components.buttons.secondary.hover.text,
@@ -143,6 +155,7 @@ const variantColor: Record<
         tokens.components.buttons.secondary.hover.backgroundColor,
       backgroundImage:
         tokens.components.buttons.secondary.hover.backgroundImage,
+      icon: tokens.components.buttons.secondary.hover.icon,
     },
     active: {
       color: tokens.components.buttons.secondary.active.text,
@@ -150,6 +163,7 @@ const variantColor: Record<
         tokens.components.buttons.secondary.active.backgroundColor,
       backgroundImage:
         tokens.components.buttons.secondary.active.backgroundImage,
+      icon: tokens.components.buttons.secondary.active.icon,
     },
     disabled: {
       color: tokens.components.buttons.secondary.disabled.text,
@@ -157,6 +171,7 @@ const variantColor: Record<
         tokens.components.buttons.secondary.disabled.backgroundColor,
       backgroundImage:
         tokens.components.buttons.secondary.disabled.backgroundImage,
+      icon: tokens.components.buttons.secondary.disabled.icon,
     },
   },
   system_regular: {
@@ -166,6 +181,7 @@ const variantColor: Record<
         tokens.components.buttons.system_regular.normal.backgroundColor,
       backgroundImage:
         tokens.components.buttons.system_regular.normal.backgroundImage,
+      icon: tokens.components.buttons.system_regular.normal.icon,
     },
     hover: {
       color: tokens.components.buttons.system_regular.hover.text,
@@ -173,6 +189,7 @@ const variantColor: Record<
         tokens.components.buttons.system_regular.hover.backgroundColor,
       backgroundImage:
         tokens.components.buttons.system_regular.hover.backgroundImage,
+      icon: tokens.components.buttons.system_regular.hover.icon,
     },
     focus: {
       color: tokens.components.buttons.system_regular.hover.text,
@@ -180,6 +197,7 @@ const variantColor: Record<
         tokens.components.buttons.system_regular.hover.backgroundColor,
       backgroundImage:
         tokens.components.buttons.system_regular.hover.backgroundImage,
+      icon: tokens.components.buttons.system_regular.hover.icon,
     },
     active: {
       color: tokens.components.buttons.system_regular.active.text,
@@ -187,6 +205,7 @@ const variantColor: Record<
         tokens.components.buttons.system_regular.active.backgroundColor,
       backgroundImage:
         tokens.components.buttons.system_regular.active.backgroundImage,
+      icon: tokens.components.buttons.system_regular.active.icon,
     },
     disabled: {
       color: tokens.components.buttons.system_regular.disabled.text,
@@ -194,6 +213,7 @@ const variantColor: Record<
         tokens.components.buttons.system_regular.disabled.backgroundColor,
       backgroundImage:
         tokens.components.buttons.system_regular.disabled.backgroundImage,
+      icon: tokens.components.buttons.system_regular.disabled.icon,
     },
   },
   system_light: {
@@ -203,6 +223,7 @@ const variantColor: Record<
         tokens.components.buttons.system_light.normal.backgroundColor,
       backgroundImage:
         tokens.components.buttons.system_light.normal.backgroundImage,
+      icon: tokens.components.buttons.system_light.normal.icon,
     },
     hover: {
       color: tokens.components.buttons.system_light.hover.text,
@@ -210,6 +231,7 @@ const variantColor: Record<
         tokens.components.buttons.system_light.hover.backgroundColor,
       backgroundImage:
         tokens.components.buttons.system_light.hover.backgroundImage,
+      icon: tokens.components.buttons.system_light.hover.icon,
     },
     focus: {
       color: tokens.components.buttons.system_light.hover.text,
@@ -217,6 +239,7 @@ const variantColor: Record<
         tokens.components.buttons.system_light.hover.backgroundColor,
       backgroundImage:
         tokens.components.buttons.system_light.hover.backgroundImage,
+      icon: tokens.components.buttons.system_light.hover.icon,
     },
     active: {
       color: tokens.components.buttons.system_light.active.text,
@@ -224,6 +247,7 @@ const variantColor: Record<
         tokens.components.buttons.system_light.active.backgroundColor,
       backgroundImage:
         tokens.components.buttons.system_light.active.backgroundImage,
+      icon: tokens.components.buttons.system_light.active.icon,
     },
     disabled: {
       color: tokens.components.buttons.system_light.disabled.text,
@@ -231,6 +255,7 @@ const variantColor: Record<
         tokens.components.buttons.system_light.disabled.backgroundColor,
       backgroundImage:
         tokens.components.buttons.system_light.disabled.backgroundImage,
+      icon: tokens.components.buttons.system_light.disabled.icon,
     },
   },
 };
@@ -274,6 +299,11 @@ export const Button = styled.button<{
 
   background-image: ${({ $color }) =>
     variantColor[$color].normal.backgroundImage};
+
+  & svg path,
+  & svg circle {
+    fill: ${({ $color }) => tokens.components.buttons[$color]?.normal.icon};
+  }
 
   &:hover {
     color: ${({ $color }) => variantColor[$color].hover.color};
