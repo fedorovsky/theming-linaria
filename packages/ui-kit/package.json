@@ -11,9 +11,17 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.es.js"
     },
+    "./button": {
+      "types": "./dist/button/index.d.ts",
+      "import": "./dist/button/index.es.js"
+    },
     "./first-component": {
       "types": "./dist/first-component/index.d.ts",
       "import": "./dist/first-component/index.es.js"
+    },
+    "./index": {
+      "types": "./dist/index/index.d.ts",
+      "import": "./dist/index/index.es.js"
     }
   },
   "files": [
