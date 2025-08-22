@@ -78,5 +78,25 @@ export default {
 };
 
 export const Primary = {
-  args: {},
+  args: {
+    color: 'primary',
+  },
+};
+
+export const Secondary = {
+  args: {
+    color: 'secondary',
+  },
+};
+
+export const SystemRegular = {
+  args: {
+    color: 'system_regular',
+  },
+};
+
+export const SystemLight = {
+  args: {
+    color: 'system_light',
+  },
 };
