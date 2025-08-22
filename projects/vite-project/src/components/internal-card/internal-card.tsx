@@ -39,7 +39,6 @@ const variantStyles: Record<
 };
 
 const Title = styled.h1<TitleProps>`
-  border: 1px solid red;
   padding: 10px;
   font-size: ${({ $variant = 'primary' }) => variantStyles[$variant].fontSize};
   color: ${({ $variant = 'primary' }) => variantStyles[$variant].color};
