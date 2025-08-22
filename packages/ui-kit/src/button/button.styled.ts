@@ -249,6 +249,10 @@ export const Button = styled.button<{
   $fluid?: boolean;
   disabled?: boolean;
 }>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
   border: none;
   cursor: pointer;
   position: relative;
@@ -312,4 +316,18 @@ export const TextContent = styled.div<{
   font-size: ${({ $size }) => variantSize[$size].fontSize};
   line-height: ${({ $size }) => variantSize[$size].lineHeight};
   font-weight: ${({ $size }) => variantSize[$size].fontWeight};
+`;
+
+export const IconContent = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.5rem;
+  width: 1rem;
+  height: auto;
+
+  & svg {
+    width: 100%;
+    height: auto;
+  }
 `;

@@ -3,6 +3,7 @@ import { ButtonSize, ButtonColor } from './types';
 import * as Styled from './button.styled';
 
 export interface ButtonProps extends React.PropsWithChildren {
+  icon?: React.FC;
   size?: ButtonSize;
   color?: ButtonColor;
   shadow?: boolean;
@@ -11,6 +12,7 @@ export interface ButtonProps extends React.PropsWithChildren {
 }
 
 export const Button = ({
+  icon: Icon = undefined,
   size = 'L',
   color = 'system_regular',
   shadow = false,
@@ -26,6 +28,11 @@ export const Button = ({
       $fluid={fluid}
       disabled={disabled}
     >
+      {Icon && (
+        <Styled.IconContent>
+          <Icon />
+        </Styled.IconContent>
+      )}
       <Styled.TextContent $size={size}>{children}</Styled.TextContent>
     </Styled.Button>
   );
