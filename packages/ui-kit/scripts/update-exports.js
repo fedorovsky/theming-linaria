@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 
 const root = process.cwd();
-const distPath = path.join(root, 'dist');
+const distPath = path.join(root, 'src');
 const packageJsonPath = path.join(root, 'package.json');
 
 // читаем package.json

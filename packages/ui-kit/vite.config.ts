@@ -47,7 +47,10 @@ export default defineConfig({
       external: ['react', 'react-dom', 'react/jsx-runtime'],
       output: {
         dir: 'dist',
-        chunkFileNames: (chunk) => `${chunk.name}/[name].js`,
+        chunkFileNames: ({ name }) =>
+          name && name !== 'index'
+            ? `${name}/[name].js`
+            : 'chunks/[name]-[hash].js',
         assetFileNames: '[name]/[name].[ext]',
         globals: {
           react: 'React',
