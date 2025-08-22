@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { FirstComponent } from '@fedorovskyi/ui-kit-linaria/first-component';
-import { Button } from '@fedorovskyi/ui-kit-linaria/button';
+import { Button } from '@fedorovskyi/ui-kit-linaria';
 import { ThemeSwitcher } from './components/theme-switcher';
 
 const InternalCard = React.lazy(() => import('./components/internal-card').then(module => ({ default: module.InternalCard })));
