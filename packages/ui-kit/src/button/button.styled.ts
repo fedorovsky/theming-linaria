@@ -2,67 +2,6 @@ import { styled } from '@linaria/react';
 import { ButtonSize, ButtonColor } from './types';
 import { tokens } from '@fedorovskyi/theme';
 
-const variantSize: Record<
-  ButtonSize,
-  {
-    padding: string;
-    minHeight: string;
-    borderRadius: string;
-    fontSize: string;
-    lineHeight: string;
-    fontWeight: string;
-  }
-> = {
-  XS: {
-    padding: '0 0.75rem',
-    minHeight: '1.5rem',
-    borderRadius: tokens.borderRadius.M,
-    fontSize: '0.75rem',
-    lineHeight: '1.5rem',
-    fontWeight: '500',
-  },
-  S: {
-    padding: '0 0.75rem',
-    minHeight: '1.75rem',
-    borderRadius: tokens.borderRadius.M,
-    fontSize: '0.75rem',
-    lineHeight: '1.75rem',
-    fontWeight: '600',
-  },
-  M: {
-    padding: '0 1rem',
-    minHeight: '2rem',
-    borderRadius: tokens.borderRadius.M,
-    fontSize: '0.8rem',
-    lineHeight: '2rem',
-    fontWeight: '600',
-  },
-  L: {
-    padding: '0 1.25rem',
-    minHeight: '2rem',
-    borderRadius: tokens.borderRadius.M,
-    fontSize: '0.9rem',
-    lineHeight: '2rem',
-    fontWeight: '600',
-  },
-  XL: {
-    padding: '0 1.25rem',
-    minHeight: '2.5rem',
-    borderRadius: tokens.borderRadius.L,
-    fontSize: '1rem',
-    lineHeight: '2.5rem',
-    fontWeight: '600',
-  },
-  XXL: {
-    padding: '0 1.25rem',
-    minHeight: '3rem',
-    borderRadius: tokens.borderRadius.L,
-    fontSize: '1.3rem',
-    lineHeight: '3rem',
-    fontWeight: '600',
-  },
-};
-
 const variantColor: Record<
   ButtonColor,
   {
@@ -271,13 +210,40 @@ interface StyledButtonProps {
 const buttonStyleGetters: Record<string, (props: StyledButtonProps) => string> =
   {
     padding: function getPadding({ $size, $fluid }) {
-      return $fluid ? '0' : variantSize[$size].padding;
+      const map = {
+        XS: '0 0.75rem',
+        S: '0 0.75rem',
+        M: '0 1rem',
+        L: '0 1.25rem',
+        XL: '0 1.25rem',
+        XXL: '0 1.25rem',
+      };
+      if ($fluid) {
+        return '0';
+      }
+      return map[$size];
     },
     minHeight: function getMinHeight({ $size }) {
-      return variantSize[$size].minHeight;
+      const map = {
+        XS: '1.5rem',
+        S: '1.75rem',
+        M: '2rem',
+        L: '2rem',
+        XL: '2.5rem',
+        XXL: '3rem',
+      };
+      return map[$size];
     },
     borderRadius: function getBorderRadius({ $size }) {
-      return variantSize[$size].borderRadius;
+      const map = {
+        XS: tokens.borderRadius.M,
+        S: tokens.borderRadius.M,
+        M: tokens.borderRadius.M,
+        L: tokens.borderRadius.M,
+        XL: tokens.borderRadius.L,
+        XXL: tokens.borderRadius.L,
+      };
+      return map[$size];
     },
     boxShadow: function getBoxShadow({ $shadow }) {
       return $shadow ? '0 0.5rem 1rem -0.5rem rgba(0, 0, 0, 0.3)' : 'none';
@@ -380,7 +346,6 @@ export const Button = styled.button<StyledButtonProps>`
   cursor: pointer;
   position: relative;
   outline: none;
-
   border-radius: ${buttonStyleGetters.borderRadius};
   padding: ${buttonStyleGetters.padding};
   min-height: ${buttonStyleGetters.minHeight};
@@ -422,12 +387,53 @@ export const Button = styled.button<StyledButtonProps>`
   }
 `;
 
-export const TextContent = styled.div<{
+interface StyledTextContentProps {
   $size: ButtonSize;
-}>`
-  font-size: ${({ $size }) => variantSize[$size].fontSize};
-  line-height: ${({ $size }) => variantSize[$size].lineHeight};
-  font-weight: ${({ $size }) => variantSize[$size].fontWeight};
+}
+
+const textContentStyleGetters: Record<
+  string,
+  (props: StyledTextContentProps) => string
+> = {
+  fontSize: function getFontSize({ $size }) {
+    const map = {
+      XS: '0.75rem',
+      S: '0.75rem',
+      M: '0.8rem',
+      L: '0.9rem',
+      XL: '1rem',
+      XXL: '1.3rem',
+    };
+    return map[$size];
+  },
+  lineHeight: function getLineHeight({ $size }) {
+    const map = {
+      XS: '1.5rem',
+      S: '1.75rem',
+      M: '2rem',
+      L: '2rem',
+      XL: '2.5rem',
+      XXL: '3rem',
+    };
+    return map[$size];
+  },
+  fontWeight: function getFontWeight({ $size }) {
+    const map = {
+      XS: '500',
+      S: '600',
+      M: '600',
+      L: '600',
+      XL: '600',
+      XXL: '600',
+    };
+    return map[$size];
+  },
+};
+
+export const TextContent = styled.div<StyledTextContentProps>`
+  font-size: ${textContentStyleGetters.fontSize};
+  line-height: ${textContentStyleGetters.lineHeight};
+  font-weight: ${textContentStyleGetters.fontWeight};
 `;
 
 export const IconContent = styled.div`
