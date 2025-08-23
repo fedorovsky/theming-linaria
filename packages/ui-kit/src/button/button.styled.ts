@@ -260,20 +260,118 @@ const variantColor: Record<
   },
 };
 
-const getPadding = ($size: ButtonSize, $fluid?: boolean) => {
-  if ($fluid) {
-    return '0';
-  }
-  return variantSize[$size].padding;
-};
-
-export const Button = styled.button<{
+interface StyledButtonProps {
   $size: ButtonSize;
   $color: ButtonColor;
   $shadow?: boolean;
   $fluid?: boolean;
   disabled?: boolean;
-}>`
+}
+
+const buttonStyleGetters: Record<string, (props: StyledButtonProps) => string> =
+  {
+    padding: function getPadding({ $size, $fluid }) {
+      return $fluid ? '0' : variantSize[$size].padding;
+    },
+    minHeight: function getMinHeight({ $size }) {
+      return variantSize[$size].minHeight;
+    },
+    borderRadius: function getBorderRadius({ $size }) {
+      return variantSize[$size].borderRadius;
+    },
+    boxShadow: function getBoxShadow({ $shadow }) {
+      return $shadow ? '0 0.5rem 1rem -0.5rem rgba(0, 0, 0, 0.3)' : 'none';
+    },
+    minWidth: function getMinWidth({ $fluid }) {
+      return $fluid ? '100%' : 'auto';
+    },
+    color: function getColor({ $color }) {
+      return variantColor[$color].normal.color;
+    },
+    backgroundColor: function getBackgroundColor({ $color }) {
+      return variantColor[$color].normal.backgroundColor;
+    },
+    backgroundImage: function getBackgroundImage({ $color }) {
+      return variantColor[$color].normal.backgroundImage;
+    },
+    fill: function getSvgFill({ $color }) {
+      return variantColor[$color].normal.icon;
+    },
+  };
+
+const buttonHoverStyleGetters: Record<
+  string,
+  (props: StyledButtonProps) => string
+> = {
+  color: function getColor({ $color }) {
+    return variantColor[$color].hover.color;
+  },
+  backgroundColor: function getBackgroundColor({ $color }) {
+    return variantColor[$color].hover.backgroundColor;
+  },
+  backgroundImage: function getBackgroundImage({ $color }) {
+    return variantColor[$color].hover.backgroundImage;
+  },
+  fill: function getSvgFill({ $color }) {
+    return variantColor[$color].hover.icon;
+  },
+};
+
+const buttonFocusStyleGetters: Record<
+  string,
+  (props: StyledButtonProps) => string
+> = {
+  color: function getColor({ $color }) {
+    return variantColor[$color].focus.color;
+  },
+  backgroundColor: function getBackgroundColor({ $color }) {
+    return variantColor[$color].focus.backgroundColor;
+  },
+  backgroundImage: function getBackgroundImage({ $color }) {
+    return variantColor[$color].focus.backgroundImage;
+  },
+  fill: function getSvgFill({ $color }) {
+    return variantColor[$color].focus.icon;
+  },
+};
+
+const buttonActiveStyleGetters: Record<
+  string,
+  (props: StyledButtonProps) => string
+> = {
+  color: function getColor({ $color }) {
+    return variantColor[$color].active.color;
+  },
+  backgroundColor: function getBackgroundColor({ $color }) {
+    return variantColor[$color].active.backgroundColor;
+  },
+  backgroundImage: function getBackgroundImage({ $color }) {
+    return variantColor[$color].active.backgroundImage;
+  },
+  fill: function getSvgFill({ $color }) {
+    return variantColor[$color].active.icon;
+  },
+};
+
+const buttonDisabledStyleGetters: Record<
+  string,
+  (props: StyledButtonProps) => string
+> = {
+  color: function getColor({ $color }) {
+    return variantColor[$color].disabled.color;
+  },
+  backgroundColor: function getBackgroundColor({ $color }) {
+    return variantColor[$color].disabled.backgroundColor;
+  },
+  backgroundImage: function getBackgroundImage({ $color }) {
+    return variantColor[$color].disabled.backgroundImage;
+  },
+  fill: function getSvgFill({ $color }) {
+    return variantColor[$color].disabled.icon;
+  },
+};
+
+export const Button = styled.button<StyledButtonProps>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -283,60 +381,44 @@ export const Button = styled.button<{
   position: relative;
   outline: none;
 
-  border-radius: ${({ $size }) => variantSize[$size].borderRadius};
-  padding: ${({ $size, $fluid }) => getPadding($size, $fluid)};
-  min-height: ${({ $size }) => variantSize[$size].minHeight};
-
-  box-shadow: ${({ $shadow }) =>
-    $shadow ? '0 0.5rem 1rem -0.5rem rgba(0, 0, 0, 0.3)' : 'none'};
-
-  width: ${({ $fluid }) => ($fluid ? '100%' : 'auto')};
-
-  color: ${({ $color }) => variantColor[$color].normal.color};
-
-  background-color: ${({ $color }) =>
-    variantColor[$color].normal.backgroundColor};
-
-  background-image: ${({ $color }) =>
-    variantColor[$color].normal.backgroundImage};
+  border-radius: ${buttonStyleGetters.borderRadius};
+  padding: ${buttonStyleGetters.padding};
+  min-height: ${buttonStyleGetters.minHeight};
+  box-shadow: ${buttonStyleGetters.boxShadow};
+  min-width: ${buttonStyleGetters.minWidth};
+  color: ${buttonStyleGetters.color};
+  background-color: ${buttonStyleGetters.backgroundColor};
+  background-image: ${buttonStyleGetters.backgroundImage};
 
   & svg path,
   & svg circle {
-    fill: ${({ $color }) => tokens.components.buttons[$color]?.normal.icon};
+    fill: ${buttonStyleGetters.fill};
   }
 
   &:hover {
-    color: ${({ $color }) => variantColor[$color].hover.color};
-    background-color: ${({ $color }) =>
-      variantColor[$color].hover.backgroundColor};
-    background-image: ${({ $color }) =>
-      variantColor[$color].hover.backgroundImage};
+    color: ${buttonHoverStyleGetters.color};
+    background-color: ${buttonHoverStyleGetters.backgroundColor};
+    background-image: ${buttonHoverStyleGetters.backgroundImage};
   }
 
   &:focus {
-    color: ${({ $color }) => variantColor[$color].focus.color};
-    background-color: ${({ $color }) =>
-      variantColor[$color].focus.backgroundColor};
-    background-image: ${({ $color }) =>
-      variantColor[$color].focus.backgroundImage};
+    color: ${buttonFocusStyleGetters.color};
+    background-color: ${buttonFocusStyleGetters.backgroundColor};
+    background-image: ${buttonFocusStyleGetters.backgroundImage};
   }
 
   &:active {
-    color: ${({ $color }) => variantColor[$color].active.color};
-    background-color: ${({ $color }) =>
-      variantColor[$color].active.backgroundColor};
-    background-image: ${({ $color }) =>
-      variantColor[$color].active.backgroundImage};
+    color: ${buttonActiveStyleGetters.color};
+    background-color: ${buttonActiveStyleGetters.backgroundColor};
+    background-image: ${buttonActiveStyleGetters.backgroundImage};
   }
 
   &:disabled {
     cursor: not-allowed;
     box-shadow: none;
-    color: ${({ $color }) => variantColor[$color].disabled.color};
-    background-color: ${({ $color }) =>
-      variantColor[$color].disabled.backgroundColor};
-    background-image: ${({ $color }) =>
-      variantColor[$color].disabled.backgroundImage};
+    color: ${buttonDisabledStyleGetters.color};
+    background-color: ${buttonDisabledStyleGetters.backgroundColor};
+    background-image: ${buttonDisabledStyleGetters.backgroundImage};
   }
 `;
 
