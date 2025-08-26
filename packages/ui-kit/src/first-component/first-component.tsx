@@ -23,7 +23,7 @@ export const FirstComponent = ({
 
   return (
     <Wrapper {...wrapperProps}>
-      <Title {...titleProps}>UI Kit - First Component - 4</Title>
+      <Title {...titleProps}>UI Kit - First Component - 6</Title>
     </Wrapper>
   );
 };

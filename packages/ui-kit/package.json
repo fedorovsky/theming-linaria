@@ -24,6 +24,7 @@
     "dist/"
   ],
   "scripts": {
+    "watch": "vite build --watch",
     "build": "npm run clean && vite build && node scripts/update-exports.js",
     "build-storybook": "storybook build",
     "clean": "rm -rf dist",
