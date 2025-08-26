@@ -31,7 +31,6 @@
     "storybook": "storybook dev -p 6006"
   },
   "dependencies": {
-    "@fedorovskyi/theme": "^1.0.19",
     "@linaria/core": "^6.3.0",
     "@linaria/react": "^6.3.0"
   },
@@ -54,6 +53,7 @@
     "vite-plugin-lib-inject-css": "^2.2.2"
   },
   "peerDependencies": {
+    "@fedorovskyi/theme": "^1.0.19",
     "react": "^18.0.0 || ^19.0.0",
     "react-dom": "^18.0.0 || ^19.0.0"
   },

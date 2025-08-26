@@ -13,7 +13,8 @@
     "start": "webpack serve --mode development"
   },
   "dependencies": {
-    "@fedorovskyi/ui-kit-linaria": "^1.0.12",
+    "@fedorovskyi/theme": "^1.0.19",
+    "@fedorovskyi/ui-kit-linaria": "file:../../packages/ui-kit",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
