@@ -17,12 +17,6 @@ export default defineConfig({
     dts({ include: ['src'], exclude: ['**/*.stories.ts', '**/*.stories.tsx'] }),
     wyw({
       include: ['src/**/*.{ts,tsx}'],
-      babelOptions: {
-        presets: [
-          '@babel/preset-typescript',
-          ['@babel/preset-react', { runtime: 'automatic' }],
-        ],
-      },
     }),
   ],
   build: {
@@ -38,22 +32,11 @@ export default defineConfig({
         ),
       },
       formats: ['es'],
-      fileName: (format, entryName) =>
-        entryName === 'index'
-          ? `index.${format}.js`
-          : `${entryName}/index.${format}.js`,
     },
     rollupOptions: {
       external: ['react', 'react-dom', 'react/jsx-runtime'],
-      output: {
-        dir: 'dist',
-        chunkFileNames: ({ name }) =>
-          name && name !== 'index'
-            ? `${name}/[name].js`
-            : 'chunks/[name]-[hash].js',
-        assetFileNames: '[name]/[name].[ext]',
-      },
     },
     target: 'es2020',
+    outDir: 'dist',
   },
 });

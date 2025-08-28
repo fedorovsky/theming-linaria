@@ -13,7 +13,7 @@ const exportsField = {};
 // добавляем корневой index
 exportsField['.'] = {
   types: './dist/index.d.ts',
-  import: './dist/index.es.js',
+  import: './dist/index.js',
 };
 
 // ищем все папки в dist (каждый компонент)
@@ -26,7 +26,7 @@ if (fs.existsSync(distPath)) {
   for (const name of componentDirs) {
     exportsField[`./${name}`] = {
       types: `./dist/${name}/index.d.ts`,
-      import: `./dist/${name}/index.es.js`,
+      import: `./dist/${name}.js`,
     };
   }
 }
