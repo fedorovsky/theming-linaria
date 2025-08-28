@@ -13,11 +13,11 @@
     },
     "./button": {
       "types": "./dist/button/index.d.ts",
-      "import": "./dist/button/index.es.js"
+      "import": "./dist/button.js"
     },
     "./first-component": {
       "types": "./dist/first-component/index.d.ts",
-      "import": "./dist/first-component/index.es.js"
+      "import": "./dist/first-component.js"
     }
   },
   "files": [

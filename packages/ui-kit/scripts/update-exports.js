@@ -26,7 +26,7 @@ if (fs.existsSync(distPath)) {
   for (const name of componentDirs) {
     exportsField[`./${name}`] = {
       types: `./dist/${name}/index.d.ts`,
-      import: `./dist/${name}/index.es.js`,
+      import: `./dist/${name}.js`,
     };
   }
 }
