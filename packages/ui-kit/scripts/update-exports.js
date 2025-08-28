@@ -13,7 +13,7 @@ const exportsField = {};
 // добавляем корневой index
 exportsField['.'] = {
   types: './dist/index.d.ts',
-  import: './dist/index.es.js',
+  import: './dist/index.js',
 };
 
 // ищем все папки в dist (каждый компонент)

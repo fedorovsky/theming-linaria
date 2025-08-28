@@ -1,6 +1,6 @@
 {
   "name": "@fedorovskyi/ui-kit-linaria",
-  "version": "1.0.15",
+  "version": "1.0.17",
   "description": "ui-kit-linaria",
   "keywords": [],
   "license": "ISC",
@@ -9,7 +9,7 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.es.js"
+      "import": "./dist/index.js"
     },
     "./button": {
       "types": "./dist/button/index.d.ts",

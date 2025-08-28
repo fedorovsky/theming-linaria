@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@fedorovskyi/theme": "^1.0.7",
-    "@fedorovskyi/ui-kit-linaria": "^1.0.15",
+    "@fedorovskyi/ui-kit-linaria": "^1.0.17",
     "@linaria/core": "^6.3.0",
     "@linaria/react": "^6.3.0",
     "@wyw-in-js/babel-preset": "^0.7.0",
