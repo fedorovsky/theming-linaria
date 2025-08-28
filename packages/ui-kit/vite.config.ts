@@ -14,7 +14,10 @@ const componentDirs = readdirSync(path.resolve(__dirname, 'src'), {
 export default defineConfig({
   plugins: [
     libInjectCss(),
-    dts({ include: ['src'], exclude: ['**/*.stories.ts', '**/*.stories.tsx'] }),
+    dts({
+      include: ['src'],
+      exclude: ['**/*.stories.{ts,tsx}'],
+    }),
     wyw({
       include: ['src/**/*.{ts,tsx}'],
     }),
