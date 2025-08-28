@@ -52,11 +52,6 @@ export default defineConfig({
             ? `${name}/[name].js`
             : 'chunks/[name]-[hash].js',
         assetFileNames: '[name]/[name].[ext]',
-        globals: {
-          react: 'React',
-          'react-dom': 'ReactDOM',
-          'react/jsx-runtime': 'jsxRuntime',
-        },
       },
     },
     target: 'es2020',
