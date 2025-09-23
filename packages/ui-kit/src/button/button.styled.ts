@@ -207,7 +207,7 @@ interface StyledButtonProps {
   disabled?: boolean;
 }
 
-const buttonStyleGetters: Record<string, (props: StyledButtonProps) => string> =
+const buttonStyleRules: Record<string, (props: StyledButtonProps) => string> =
   {
     padding: function getPadding({ $size, $fluid }) {
       const map = {
@@ -265,7 +265,7 @@ const buttonStyleGetters: Record<string, (props: StyledButtonProps) => string> =
     },
   };
 
-const buttonHoverStyleGetters: Record<
+const buttonHoverStyleRules: Record<
   string,
   (props: StyledButtonProps) => string
 > = {
@@ -283,7 +283,7 @@ const buttonHoverStyleGetters: Record<
   },
 };
 
-const buttonFocusStyleGetters: Record<
+const buttonFocusStyleRules: Record<
   string,
   (props: StyledButtonProps) => string
 > = {
@@ -301,7 +301,7 @@ const buttonFocusStyleGetters: Record<
   },
 };
 
-const buttonActiveStyleGetters: Record<
+const buttonActiveStyleRules: Record<
   string,
   (props: StyledButtonProps) => string
 > = {
@@ -319,7 +319,7 @@ const buttonActiveStyleGetters: Record<
   },
 };
 
-const buttonDisabledStyleGetters: Record<
+const buttonDisabledStyleRules: Record<
   string,
   (props: StyledButtonProps) => string
 > = {
@@ -346,44 +346,44 @@ export const Button = styled.button<StyledButtonProps>`
   cursor: pointer;
   position: relative;
   outline: none;
-  border-radius: ${buttonStyleGetters.borderRadius};
-  padding: ${buttonStyleGetters.padding};
-  min-height: ${buttonStyleGetters.minHeight};
-  box-shadow: ${buttonStyleGetters.boxShadow};
-  min-width: ${buttonStyleGetters.minWidth};
-  color: ${buttonStyleGetters.color};
-  background-color: ${buttonStyleGetters.backgroundColor};
-  background-image: ${buttonStyleGetters.backgroundImage};
+  border-radius: ${buttonStyleRules.borderRadius};
+  padding: ${buttonStyleRules.padding};
+  min-height: ${buttonStyleRules.minHeight};
+  box-shadow: ${buttonStyleRules.boxShadow};
+  min-width: ${buttonStyleRules.minWidth};
+  color: ${buttonStyleRules.color};
+  background-color: ${buttonStyleRules.backgroundColor};
+  background-image: ${buttonStyleRules.backgroundImage};
 
   & svg path,
   & svg circle {
-    fill: ${buttonStyleGetters.fill};
+    fill: ${buttonStyleRules.fill};
   }
 
   &:hover {
-    color: ${buttonHoverStyleGetters.color};
-    background-color: ${buttonHoverStyleGetters.backgroundColor};
-    background-image: ${buttonHoverStyleGetters.backgroundImage};
+    color: ${buttonHoverStyleRules.color};
+    background-color: ${buttonHoverStyleRules.backgroundColor};
+    background-image: ${buttonHoverStyleRules.backgroundImage};
   }
 
   &:focus {
-    color: ${buttonFocusStyleGetters.color};
-    background-color: ${buttonFocusStyleGetters.backgroundColor};
-    background-image: ${buttonFocusStyleGetters.backgroundImage};
+    color: ${buttonFocusStyleRules.color};
+    background-color: ${buttonFocusStyleRules.backgroundColor};
+    background-image: ${buttonFocusStyleRules.backgroundImage};
   }
 
   &:active {
-    color: ${buttonActiveStyleGetters.color};
-    background-color: ${buttonActiveStyleGetters.backgroundColor};
-    background-image: ${buttonActiveStyleGetters.backgroundImage};
+    color: ${buttonActiveStyleRules.color};
+    background-color: ${buttonActiveStyleRules.backgroundColor};
+    background-image: ${buttonActiveStyleRules.backgroundImage};
   }
 
   &:disabled {
     cursor: not-allowed;
     box-shadow: none;
-    color: ${buttonDisabledStyleGetters.color};
-    background-color: ${buttonDisabledStyleGetters.backgroundColor};
-    background-image: ${buttonDisabledStyleGetters.backgroundImage};
+    color: ${buttonDisabledStyleRules.color};
+    background-color: ${buttonDisabledStyleRules.backgroundColor};
+    background-image: ${buttonDisabledStyleRules.backgroundImage};
   }
 `;
 
@@ -391,7 +391,7 @@ interface StyledTextContentProps {
   $size: ButtonSize;
 }
 
-const textContentStyleGetters: Record<
+const textContentStyleRules: Record<
   string,
   (props: StyledTextContentProps) => string
 > = {
@@ -431,9 +431,9 @@ const textContentStyleGetters: Record<
 };
 
 export const TextContent = styled.div<StyledTextContentProps>`
-  font-size: ${textContentStyleGetters.fontSize};
-  line-height: ${textContentStyleGetters.lineHeight};
-  font-weight: ${textContentStyleGetters.fontWeight};
+  font-size: ${textContentStyleRules.fontSize};
+  line-height: ${textContentStyleRules.lineHeight};
+  font-weight: ${textContentStyleRules.fontWeight};
 `;
 
 export const IconContent = styled.div`
