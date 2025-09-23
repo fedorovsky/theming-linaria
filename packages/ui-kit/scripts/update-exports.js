@@ -1,3 +1,24 @@
+/**
+ * This script automatically updates the "exports" field in package.json.
+ *
+ * Workflow:
+ * 1. Reads package.json from the project root.
+ * 2. Builds a new "exports" field:
+ *    - Adds the root export `.` (index.js + index.d.ts from dist).
+ *    - Scans all folders inside src (each representing a component).
+ *    - For each folder, creates an export entry:
+ *        "./<component>": {
+ *          types: "./dist/<component>/index.d.ts",
+ *          import: "./dist/<component>.js"
+ *        }
+ * 3. Updates package.json by replacing only the "exports" field,
+ *    saving it with pretty formatting (2 spaces).
+ * 4. Logs a success message.
+ *
+ * In short, this script ensures that the root module and all components
+ * have correct type and import paths in package.json.
+ */
+
 import fs from 'fs';
 import path from 'path';
 
