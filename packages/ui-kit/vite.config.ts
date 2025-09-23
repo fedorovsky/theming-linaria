@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
 import wyw from '@wyw-in-js/vite';
 import { libInjectCss } from 'vite-plugin-lib-inject-css';
-import path from 'path';
+import * as path from 'path';
 import { readdirSync } from 'fs';
 
 const componentDirs = readdirSync(path.resolve(__dirname, 'src'), {
