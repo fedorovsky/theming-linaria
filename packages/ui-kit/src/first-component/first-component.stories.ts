@@ -23,18 +23,14 @@ export default {
       control: 'boolean',
       defaultValue: false,
     },
-    args: {
-      size: 'medium',
-      color: 'primary',
-      fluid: false,
-    },
   },
-};
-
-export const Primary = {
   args: {
     size: 'medium',
     color: 'primary',
     fluid: false,
   },
+};
+
+export const Primary = {
+  args: {},
 };
