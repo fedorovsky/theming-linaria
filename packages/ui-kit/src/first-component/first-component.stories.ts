@@ -19,6 +19,10 @@ export default {
       options: ['primary', 'secondary'],
       defaultValue: 'primary',
     },
+    fluid: {
+      control: 'boolean',
+      defaultValue: false,
+    },
     args: {
       size: 'medium',
       color: 'primary',
@@ -31,5 +35,6 @@ export const Primary = {
   args: {
     size: 'medium',
     color: 'primary',
+    fluid: false,
   },
 };

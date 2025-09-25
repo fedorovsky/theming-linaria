@@ -1,37 +1,44 @@
 import { styled } from '@linaria/react';
 import { tokens } from '@fedorovskyi/theme';
-import { type ConditionalProps } from './first-component';
+import { type VariantProps } from './first-component';
 
-const wrapperStyleRules: Record<string, (props: ConditionalProps) => string> = {
-  padding: function getPadding({ size = 'small', fluid = false }) {
+const wrapperStyleRules: Record<string, (props: VariantProps) => string> = {
+  padding({ size = 'small' }) {
     const map = {
-      small: '0 0.75rem',
-      medium: '0 1rem',
-      large: '0 2rem',
-    } as const;
-    if (fluid) {
-      return '0';
-    }
+      small: '0.75rem',
+      medium: '1rem',
+      large: '2rem',
+    };
     return map[size];
   },
-  backgroundColor: function getBackgroundColor({ color = 'primary' }) {
+  backgroundColor({ color = 'primary' }) {
     const map = {
       primary: '#DC3545',
       secondary: '#17A2B8',
-    } as const;
+    };
     return map[color];
+  },
+  width({ size = 'small', fluid = false }) {
+    const map = {
+      small: '150px',
+      medium: '250px',
+      large: '350px',
+    };
+    if (fluid) {
+      return '100%';
+    }
+    return map[size];
   },
 };
 
-export const Wrapper = styled.div<ConditionalProps>`
-  border: 1px solid ${tokens.colors.primary100};
+export const Wrapper = styled.div<VariantProps>`
   border-radius: ${tokens.borderRadius.L};
-  max-width: 300px;
+  max-width: ${wrapperStyleRules.width};
   background-color: ${wrapperStyleRules.backgroundColor};
   padding: ${wrapperStyleRules.padding};
 `;
 
 export const Title = styled.h2`
-  font-size: 1.5rem;
+  margin: 0;
   color: ${tokens.colors.textNeutral100};
 `;
