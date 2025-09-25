@@ -1,7 +1,13 @@
 import * as React from 'react';
 import * as Styled from './first-component.styled';
 
-export interface FirstComponent {
+export interface VariantProps {
+  color?: 'primary' | 'secondary';
+  size?: 'small' | 'medium' | 'large';
+  fluid?: boolean;
+}
+
+export interface FirstComponent extends VariantProps {
   slots?: {
     wrapper?: React.ElementType;
     title?: React.ElementType;
@@ -13,17 +19,21 @@ export interface FirstComponent {
 }
 
 export const FirstComponent = ({
+  color = 'primary',
+  size = 'medium',
+  fluid = false,
   slots = {},
   slotProps = {},
 }: FirstComponent) => {
-  const { wrapper: Wrapper = Styled.Wrapper, title: Title = Styled.Title } =
-    slots;
+  const Wrapper = slots.wrapper ?? Styled.Wrapper;
+  const Title = slots.title ?? Styled.Title;
 
-  const { wrapper: wrapperProps = {}, title: titleProps = {} } = slotProps;
+  const wrapperProps = slotProps.wrapper ?? {};
+  const titleProps = slotProps.title ?? {};
 
   return (
-    <Wrapper {...wrapperProps}>
-      <Title {...titleProps}>UI Kit - First Component - 6</Title>
+    <Wrapper {...wrapperProps} color={color} size={size} fluid={fluid}>
+      <Title {...titleProps}>{titleProps.children ?? 'Title'}</Title>
     </Wrapper>
   );
 };

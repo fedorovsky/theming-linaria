@@ -1,16 +1,35 @@
-import { FirstComponent } from './index';
+import { FirstComponent } from './first-component';
 
 export default {
   title: 'FirstComponent',
   component: FirstComponent,
-  parameters: {
-    layout: 'centered',
-  },
   tags: ['autodocs'],
-  argTypes: {},
-  args: {},
+  argTypes: {
+    size: {
+      control: {
+        type: 'radio',
+      },
+      options: ['small', 'medium', 'large'],
+      defaultValue: 'medium',
+    },
+    color: {
+      control: {
+        type: 'radio',
+      },
+      options: ['primary', 'secondary'],
+      defaultValue: 'primary',
+    },
+    args: {
+      size: 'medium',
+      color: 'primary',
+      fluid: false,
+    },
+  },
 };
 
 export const Primary = {
-  args: {},
+  args: {
+    size: 'medium',
+    color: 'primary',
+  },
 };
