@@ -1,6 +1,6 @@
 import { styled } from '@linaria/react';
 import { tokens } from '@fedorovskyi/theme';
-import { type VariantProps } from './first-component';
+import { type VariantProps } from './demo';
 
 const wrapperStyleRules: Record<string, (props: VariantProps) => string> = {
   padding({ size = 'small' }) {

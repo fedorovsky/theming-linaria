@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as Styled from './first-component.styled';
+import * as Styled from './demo.styled';
 
 export interface VariantProps {
   color?: 'primary' | 'secondary';
@@ -7,7 +7,7 @@ export interface VariantProps {
   fluid?: boolean;
 }
 
-export interface FirstComponent extends VariantProps {
+export interface DemoProps extends VariantProps {
   slots?: {
     wrapper?: React.ElementType;
     title?: React.ElementType;
@@ -18,13 +18,13 @@ export interface FirstComponent extends VariantProps {
   };
 }
 
-export const FirstComponent = ({
+export const Demo = ({
   color = 'primary',
   size = 'medium',
   fluid = false,
   slots = {},
   slotProps = {},
-}: FirstComponent) => {
+}: DemoProps) => {
   const Wrapper = slots.wrapper ?? Styled.Wrapper;
   const Title = slots.title ?? Styled.Title;
 

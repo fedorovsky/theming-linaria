@@ -1,8 +1,8 @@
-import { FirstComponent } from './first-component';
+import { Demo } from './demo';
 
 export default {
-  title: 'FirstComponent',
-  component: FirstComponent,
+  title: 'Demo',
+  component: Demo,
   tags: ['autodocs'],
   argTypes: {
     size: {

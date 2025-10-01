@@ -1,6 +1,6 @@
 {
   "name": "@fedorovskyi/ui-kit-linaria",
-  "version": "1.0.18",
+  "version": "1.0.19",
   "description": "ui-kit-linaria",
   "keywords": [],
   "license": "ISC",
@@ -15,9 +15,9 @@
       "types": "./dist/button/index.d.ts",
       "import": "./dist/button.js"
     },
-    "./first-component": {
-      "types": "./dist/first-component/index.d.ts",
-      "import": "./dist/first-component.js"
+    "./demo": {
+      "types": "./dist/demo/index.d.ts",
+      "import": "./dist/demo.js"
     }
   },
   "files": [

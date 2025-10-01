@@ -1,2 +1,2 @@
-export { FirstComponent } from './first-component';
+export { Demo } from './demo';
 export { Button } from './button';
