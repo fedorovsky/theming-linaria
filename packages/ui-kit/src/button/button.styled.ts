@@ -207,63 +207,62 @@ interface StyledButtonProps {
   disabled?: boolean;
 }
 
-const buttonStyleRules: Record<string, (props: StyledButtonProps) => string> =
-  {
-    padding: function getPadding({ $size, $fluid }) {
-      const map = {
-        XS: '0 0.75rem',
-        S: '0 0.75rem',
-        M: '0 1rem',
-        L: '0 1.25rem',
-        XL: '0 1.25rem',
-        XXL: '0 1.25rem',
-      };
-      if ($fluid) {
-        return '0';
-      }
-      return map[$size];
-    },
-    minHeight: function getMinHeight({ $size }) {
-      const map = {
-        XS: '1.5rem',
-        S: '1.75rem',
-        M: '2rem',
-        L: '2rem',
-        XL: '2.5rem',
-        XXL: '3rem',
-      };
-      return map[$size];
-    },
-    borderRadius: function getBorderRadius({ $size }) {
-      const map = {
-        XS: tokens.borderRadius.M,
-        S: tokens.borderRadius.M,
-        M: tokens.borderRadius.M,
-        L: tokens.borderRadius.M,
-        XL: tokens.borderRadius.L,
-        XXL: tokens.borderRadius.L,
-      };
-      return map[$size];
-    },
-    boxShadow: function getBoxShadow({ $shadow }) {
-      return $shadow ? '0 0.5rem 1rem -0.5rem rgba(0, 0, 0, 0.3)' : 'none';
-    },
-    minWidth: function getMinWidth({ $fluid }) {
-      return $fluid ? '100%' : 'auto';
-    },
-    color: function getColor({ $color }) {
-      return variantColor[$color].normal.color;
-    },
-    backgroundColor: function getBackgroundColor({ $color }) {
-      return variantColor[$color].normal.backgroundColor;
-    },
-    backgroundImage: function getBackgroundImage({ $color }) {
-      return variantColor[$color].normal.backgroundImage;
-    },
-    fill: function getSvgFill({ $color }) {
-      return variantColor[$color].normal.icon;
-    },
-  };
+const buttonStyleRules: Record<string, (props: StyledButtonProps) => string> = {
+  padding: function getPadding({ $size, $fluid }) {
+    const map = {
+      XS: '0 0.75rem',
+      S: '0 0.75rem',
+      M: '0 1rem',
+      L: '0 1.25rem',
+      XL: '0 1.25rem',
+      XXL: '0 1.25rem',
+    };
+    if ($fluid) {
+      return '0';
+    }
+    return map[$size];
+  },
+  minHeight: function getMinHeight({ $size }) {
+    const map = {
+      XS: '1.5rem',
+      S: '1.75rem',
+      M: '2rem',
+      L: '2rem',
+      XL: '2.5rem',
+      XXL: '3rem',
+    };
+    return map[$size];
+  },
+  borderRadius: function getBorderRadius({ $size }) {
+    const map = {
+      XS: tokens.borderRadius.M,
+      S: tokens.borderRadius.M,
+      M: tokens.borderRadius.M,
+      L: tokens.borderRadius.M,
+      XL: tokens.borderRadius.L,
+      XXL: tokens.borderRadius.L,
+    };
+    return map[$size];
+  },
+  boxShadow: function getBoxShadow({ $shadow }) {
+    return $shadow ? '0 0.5rem 1rem -0.5rem rgba(0, 0, 0, 0.3)' : 'none';
+  },
+  minWidth: function getMinWidth({ $fluid }) {
+    return $fluid ? '100%' : 'auto';
+  },
+  color: function getColor({ $color }) {
+    return variantColor[$color].normal.color;
+  },
+  backgroundColor: function getBackgroundColor({ $color }) {
+    return variantColor[$color].normal.backgroundColor;
+  },
+  backgroundImage: function getBackgroundImage({ $color }) {
+    return variantColor[$color].normal.backgroundImage;
+  },
+  fill: function getSvgFill({ $color }) {
+    return variantColor[$color].normal.icon;
+  },
+};
 
 const buttonHoverStyleRules: Record<
   string,

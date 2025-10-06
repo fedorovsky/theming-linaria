@@ -1,6 +1,7 @@
 /** @type { import('@storybook/react-vite').Preview } */
 import React from 'react';
 import '@fedorovskyi/theme/theme.css';
+import './global.css';
 
 export const globalTypes = {
   theme: {
