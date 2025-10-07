@@ -20,6 +20,9 @@ export default defineConfig({
     }),
     wyw({
       include: ['src/**/*.{ts,tsx}'],
+      babelOptions: {
+        presets: [['@babel/preset-typescript', { allowDeclareFields: true }]],
+      },
     }),
   ],
   build: {
@@ -37,7 +40,12 @@ export default defineConfig({
       formats: ['es'],
     },
     rollupOptions: {
-      external: ['react', 'react-dom', 'react/jsx-runtime'],
+      external: [
+        'react',
+        'react-dom',
+        'react/jsx-runtime',
+        '@fedorovskyi/theme',
+      ],
     },
     target: 'es2020',
     outDir: 'dist',

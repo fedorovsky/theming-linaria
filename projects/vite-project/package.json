@@ -13,7 +13,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@fedorovskyi/ui-kit-linaria": "^1.0.20",
+    "@fedorovskyi/ui-kit-linaria": "^1.0.21",
     "@linaria/core": "^6.3.0",
     "@linaria/react": "^6.3.0",
     "react": "^19.1.1",

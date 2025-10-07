@@ -1,14 +1,15 @@
 import { styled } from '@linaria/react';
 import { tokens } from '@fedorovskyi/theme';
+import { spacing } from '../utils';
 import { type VariantProps } from './demo';
 
 // Use style maps for each styled component.
 const wrapperStyleRules: Record<string, (props: VariantProps) => string> = {
   padding({ size = 'small' }) {
     const paddingBySize = {
-      small: '0.75rem',
-      medium: '1rem',
-      large: '2rem',
+      small: spacing(0.75),
+      medium: spacing(1),
+      large: spacing(2),
     };
     return paddingBySize[size];
   },
