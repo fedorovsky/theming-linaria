@@ -5,7 +5,7 @@ import App from './App.tsx';
 /**
  * Theme
  */
-import '@fedorovskyi/theme/theme.css';
+import '@mstyle/theme/theme.css';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

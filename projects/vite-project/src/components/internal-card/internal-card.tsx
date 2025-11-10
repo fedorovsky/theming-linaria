@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react';
-import { tokens } from '@fedorovskyi/theme';
+import { tokens } from '@mstyle/theme';
 
 type Variant = 'primary' | 'secondary' | 'success' | 'danger' | 'warning';
 
@@ -7,10 +7,7 @@ interface TitleProps {
   $variant?: Variant;
 }
 
-const variantStyles: Record<
-  Variant,
-  { fontSize: string; color: string; background: string }
-> = {
+const variantStyles: Record<Variant, { fontSize: string; color: string; background: string }> = {
   primary: {
     fontSize: '32px',
     color: tokens.colors.textNeutral100,
