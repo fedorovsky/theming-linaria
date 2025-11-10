@@ -1,7 +1,7 @@
 /**
  * Theme
  */
-import '@fedorovskyi/theme/theme.css';
+import '@mstyle/theme/theme.css';
 
 export default function RootLayout({
   children,

@@ -9,8 +9,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "@fedorovskyi/theme": "^1.0.7",
-    "@fedorovskyi/ui-kit-linaria": "^1.0.21",
+    "@mstyle/ui-kit": "^0.0.3",
     "@linaria/core": "^6.3.0",
     "@linaria/react": "^6.3.0",
     "@wyw-in-js/babel-preset": "^0.7.0",

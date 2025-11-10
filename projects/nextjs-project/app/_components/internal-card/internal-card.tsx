@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react';
-import { tokens } from '@fedorovskyi/theme';
+import { tokens } from '@mstyle/theme';
 
 type Variant = 'primary' | 'secondary' | 'success' | 'danger' | 'warning';
 
