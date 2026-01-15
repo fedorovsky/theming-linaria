@@ -1,4 +1,4 @@
-import { Demo } from '@mstyle/ui-kit/demo';
+import { Demo, Button } from '@mstyle/ui-kit';
 import { ThemeSwitcher } from '@/app/_components/theme-switcher';
 import { InternalCard } from '@/app/_components/internal-card';
 
@@ -7,6 +7,8 @@ export default function Home() {
       <div>
         <ThemeSwitcher />
         <Demo />
+        <br />
+        <Button color="primary">Button</Button>
         <InternalCard />
       </div>
   );

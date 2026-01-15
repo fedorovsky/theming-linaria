@@ -9,7 +9,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "@mstyle/ui-kit": "^0.0.3",
+    "@mstyle/ui-kit": "^0.0.22",
     "@linaria/core": "^6.3.0",
     "@linaria/react": "^6.3.0",
     "@wyw-in-js/babel-preset": "^0.7.0",
