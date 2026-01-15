@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Demo } from '@mstyle/ui-kit';
+import { Demo, Button } from '@mstyle/ui-kit';
 import { ThemeSwitcher } from './components/theme-switcher';
 
 const InternalCard = React.lazy(() =>
@@ -11,6 +11,8 @@ function App() {
     <>
       <ThemeSwitcher />
       <Demo />
+      <br />
+      <Button color="primary">Button</Button>
       <React.Suspense fallback={null}>
         <InternalCard />
       </React.Suspense>
